@@ -1,15 +1,16 @@
 import { Request, Response } from 'express';
 
-import { Product } from '../../models/product';
+import { Order } from '../../models/order';
 
 export async function deleteOrder(req: Request,res: Response){
   try {
-    const products = await Product.find();
+    const {orderId} = req.params;
 
-    res.json(products);
+    await Order.findByIdAndDelete(orderId);
+
+    res.sendStatus(204);
   }catch (error){
-    console.log(`createProducts: ${error}`);
+    console.log(`deleteOrder: ${error}`);
     res.sendStatus(500);
   }
-
 }

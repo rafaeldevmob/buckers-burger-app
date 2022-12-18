@@ -1,14 +1,16 @@
 import { Request, Response } from 'express';
 
-import { Product } from '../../models/product';
+import { Order } from '../../models/order';
 
 export async function createOrder(req: Request,res: Response){
   try {
-    const products = await Product.find();
+    const {table, products} = req.body;
 
-    res.json(products);
+    const order = await Order.create({table, products});
+
+    res.status(201).json(order);
   }catch (error){
-    console.log(`createProducts: ${error}`);
+    console.log(`CreateOrder: ${error}`);
     res.sendStatus(500);
   }
 
