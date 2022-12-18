@@ -10,7 +10,7 @@ import { createOrder } from './app/components/order/createOrder';
 import { deleteOrder } from './app/components/order/deleteOrder';
 import { listOrder } from './app/components/order/listOrder';
 import { createProducts } from './app/components/products/createProduct';
-import { getProducts } from './app/components/products/getProducts';
+import { getProductsByCategory } from './app/components/categories/getProductsByCategory';
 import { listProducts } from './app/components/products/listProducts';
 
 export const router = Router();
@@ -39,7 +39,7 @@ router.get('/products', listProducts);
 router.post('/products',upload.single('image'), createProducts);
 
 //obter produtos por categoria
-router.get('/categories/:categoryId/products', getProducts);
+router.get('/categories/:categoryId/products', getProductsByCategory);
 
 //lista ordens
 router.get('/orders', listOrder);
