@@ -11,7 +11,6 @@ export const Product = model('Product', new Schema({
   },
   imagePath:{
     type: String,
-    required: true,
   },
   price:{
     type: Number,
@@ -21,10 +20,6 @@ export const Product = model('Product', new Schema({
     required: true,
     type: [{
       name: {
-        type: String,
-        required: true,
-      },
-      icon: {
         type: String,
         required: true,
       },
