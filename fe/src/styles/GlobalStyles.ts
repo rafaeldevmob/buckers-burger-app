@@ -11,6 +11,9 @@ import GeneralSansSemiboldWoff from '../assets/fonts/GeneralSans-Semibold.woff';
 import GeneralSansSemiboldTtf from '../assets/fonts/GeneralSans-Semibold.ttf';
 
 export const GlobalStyles = createGlobalStyle`
+:root {
+  --font-white: #ffffff;
+}
 @font-face {
     font-family: 'GeneralSans';
     font-weight: 400;
@@ -43,6 +46,9 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: GeneralSans, sans-serif;
+  }
+  html{
+    font-size:62.5%;
   }
   body {
     background: #fafafa;
