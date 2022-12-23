@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
   display:flex;
   justify-content:center;
   align-items:center;
-  background: #d73035;
+  background: var(--background-header);
   box-sizing:border-box;
 `;
 

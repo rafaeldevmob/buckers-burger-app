@@ -13,6 +13,10 @@ import GeneralSansSemiboldTtf from '../assets/fonts/GeneralSans-Semibold.ttf';
 export const GlobalStyles = createGlobalStyle`
 :root {
   --font-white: #ffffff;
+  --font-card: #666;
+  --background-card: #ffffff;
+  --background-header: #d73035;
+  --background-table: #fafafa
 }
 @font-face {
     font-family: 'GeneralSans';
@@ -51,7 +55,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size:62.5%;
   }
   body {
-    background: #fafafa;
+    background: #ffffff;
     color: #333;
   }
   button {

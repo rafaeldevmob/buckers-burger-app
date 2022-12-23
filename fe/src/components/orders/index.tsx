@@ -1,21 +1,42 @@
 import React from 'react';
-import { OrdersCard, OrdersCardBody, OrdersContainer } from './styles';
+import { Order } from '../../types/orders';
+import OrdersCard from '../ordersCard';
+import { OrdersContainer } from './styles';
+
+const orders: Order[] =[
+  {
+    '_id': '624526',
+    'table': '123',
+    'status': 'WAITING',
+    'products': [
+      {
+        'product': {
+          'name': 'Pizza Quatro Queijos',
+          'imagePath': '13135131-coca-cola.png',
+          'price': 40
+        },
+        'quantity': 3,
+        '_id':'546541251'
+      },
+    ]
+  },
+];
 
 export default function Orders(){
   return(
     <OrdersContainer>
-      <OrdersCard>
-        <header>
-          <strong>Fila de Espera</strong>
-          <span>(1)</span>
-        </header>
-        <OrdersCardBody>
-          <button type='button'>
-            <strong>Mesa 2</strong>
-            <span>2 itens</span>
-          </button>
-        </OrdersCardBody>
-      </OrdersCard>
+      <OrdersCard
+        title='Fila de espera'
+        orders={orders}
+      />
+      <OrdersCard
+        title='Em Preparo'
+        orders={[]}
+      />
+      <OrdersCard
+        title='Finalizado'
+        orders={[]}
+      />
     </OrdersContainer>
   );
 }
