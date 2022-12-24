@@ -17,12 +17,20 @@ export default function OrdersCard({title, orders}: OrdersCardProps){
     setSelectedOrder(order);
   }
 
+  function handleCloseModal(){
+    setModalVisible(false);
+    setSelectedOrder(null);
+  }
+
   return(
     <>
       <OrdersCards>
         <OrderModal
           visible={modalVisible}
-          order={selectedOrder}/>
+          order={selectedOrder}
+          onClose={handleCloseModal}
+        />
+
         <header>
           <strong>{title}</strong>
           <span>({orders.length})</span>

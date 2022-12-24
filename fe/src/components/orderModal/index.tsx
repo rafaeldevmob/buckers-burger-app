@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalBody, ModalDetails, Overlay } from './styles';
+import { ActionsModal, ModalBody, ModalDetails, Overlay } from './styles';
 import closeIcon from '../../assets/images/close-icon.svg';
 import {Order} from '../../types/orders';
 import { formatCurrency } from '../../utils/formatCurrency';
@@ -7,9 +7,10 @@ import { formatCurrency } from '../../utils/formatCurrency';
 type OrderModalProps = {
   visible: boolean;
   order: Order | null;
+  onClose: () => void;
 }
 
-export default function OrderModal({visible, order}: OrderModalProps){
+export default function OrderModal({visible, order, onClose}: OrderModalProps){
   if(!visible || !order){
     return null;
   }
@@ -23,7 +24,7 @@ export default function OrderModal({visible, order}: OrderModalProps){
       <ModalBody>
         <header>
           <strong>Mesa {order.table}</strong>
-          <button type='button'><img src={closeIcon} alt='close'/></button>
+          <button type='button' onClick={onClose}><img src={closeIcon} alt='close'/></button>
         </header>
         <div className='Modal-Status-Container'>
           <small>Status do Pedido</small>
@@ -54,6 +55,14 @@ export default function OrderModal({visible, order}: OrderModalProps){
             <strong>{formatCurrency(total)}</strong>
           </div>
         </ModalDetails>
+        <ActionsModal>
+          <button type='button' className='button-send-modal'>
+            <strong>Iniciar Pedido</strong>
+          </button>
+          <button type='button' className='button-cancel-modal'>
+            <strong>Cancelar Pedido</strong>
+          </button>
+        </ActionsModal>
       </ModalBody>
     </Overlay>
   );

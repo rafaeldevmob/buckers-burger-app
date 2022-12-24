@@ -125,3 +125,29 @@ export const ModalDetails = styled.div`
   }
 `;
 
+export const ActionsModal = styled.footer`
+  .button-send-modal{
+    display:block;
+    margin:3.2rem auto 1.2rem;
+    min-width:20rem;
+    padding:1.2rem 2.4rem;
+    background:#333333;
+    border-radius:4.8rem;
+    border:0;
+    font-size:1.4rem;
+    font-weight:900;
+    color:#ffff;
+  }
+  .button-cancel-modal{
+    font-size:1.4rem;
+    font-weight:900;
+    display:block;
+    margin:0 auto;
+    padding:1.2rem 2.4rem;
+    background:transparent;
+    border:0;
+    color:#d73035;
+  }
+
+`;
+
