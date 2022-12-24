@@ -12,7 +12,7 @@ const orders: Order[] =[
       {
         'product': {
           'name': 'Pizza Quatro Queijos',
-          'imagePath': '13135131-coca-cola.png',
+          'imagePath': '1671372996157-coca.png',
           'price': 40
         },
         'quantity': 3,
@@ -30,7 +30,7 @@ export default function Orders(){
         orders={orders}
       />
       <OrdersCard
-        title='Em Preparo'
+        title='Em Produção'
         orders={[]}
       />
       <OrdersCard
