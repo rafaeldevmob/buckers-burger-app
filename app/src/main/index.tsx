@@ -1,10 +1,10 @@
-import { Text } from "react-native";
+import { Header } from "../components/header";
 import { Container } from "./styles";
 
 export function Main(){
   return(
     <Container>
-      <Text>Renderizado</Text>
+      <Header/>
     </Container>
   );
 }
