@@ -20,3 +20,8 @@ Tools
 
 - vite
 
+Technology
+
+- React
+- Typescript
+- React Native
