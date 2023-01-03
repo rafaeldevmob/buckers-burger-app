@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, TouchableOpacity, Platform } from "react-native";
+import { Modal, TouchableOpacity, Platform, Pressable } from "react-native";
 import { Button } from "../button";
 import { Close } from "../Icons/Close";
 import { Text } from "../Text";
@@ -41,9 +41,11 @@ export function TableModal ({visible, onClose, onSave}: TableModalProps){
             keyboardType="number-pad"
             onChangeText={setTable}
             />
-            <Button onPress={handleSave} >
+            {!!table.length && (
+            <Button onPress={handleSave}>
               Salvar
             </Button>
+            )}
           </Form>
         </Body>
       </Overlay>
