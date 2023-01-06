@@ -16,10 +16,7 @@ export const CloseButton = styled.TouchableOpacity`
   border-radius:16px;
 `;
 
-export const Header = styled.View`
-
-
-`;
+export const Header = styled.View``;
 
 export const ModalBody = styled.View`
   padding:32px 24px 0;
