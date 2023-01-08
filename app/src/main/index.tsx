@@ -7,6 +7,7 @@ import { Header } from "../components/header";
 import { Menu } from "../components/menu";
 import { TableModal } from "../components/modal";
 import { CartItem } from "../types/CartItem";
+import { Product } from "../types/Product";
 import {
    Container,
    CategoriesContainer,
@@ -27,6 +28,10 @@ export function Main(){
     setSelectTable('');
   }
 
+  function handleAddToCart(product: Product){
+    alert(product.name)
+  }
+
   return(
    <>
     <Container>
@@ -40,7 +45,7 @@ export function Main(){
       </CategoriesContainer>
 
       <MenuContainer>
-        <Menu/>
+        <Menu onAddToCart={handleAddToCart}/>
       </MenuContainer>
 
     </Container>

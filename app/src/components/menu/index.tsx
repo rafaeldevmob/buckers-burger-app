@@ -8,7 +8,11 @@ import { ProductModal } from "../productModal";
 import { Text } from "../Text";
 import {ProductContainer, ProductImage, ProductDetails, Grid, AddToCartButton} from "./styles";
 
-export function Menu (){
+type MenuProps = {
+  onAddToCart: (product: Product)=> void;
+}
+
+export function Menu ({onAddToCart}:MenuProps){
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<null | Product>(null);
 
@@ -35,7 +39,7 @@ return (
             <Text size={14} color='#666' style={{ marginVertical: 8 }}>{product.descritption}</Text>
             <Text size={14} weight="600">{formatCurrency(product.price)}</Text>
           </ProductDetails>
-          <AddToCartButton>
+          <AddToCartButton onPress={() => onAddToCart(product)}>
             <PlusCircle/>
           </AddToCartButton>
         </ProductContainer>
@@ -44,6 +48,7 @@ return (
       visible={modalVisible}
       onClose={() => setModalVisible(false)}
       product={selectedProduct}
+      onAddToCart={onAddToCart}
       />
     </>
   );
