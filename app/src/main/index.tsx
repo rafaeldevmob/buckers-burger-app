@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Alert } from "react-native";
+import { ActivityIndicator, Alert } from "react-native";
 import { Button } from "../components/button";
 import { Cart } from "../components/cart";
 import { Categories } from "../components/categories";
@@ -13,12 +13,14 @@ import {
    CategoriesContainer,
    MenuContainer,
    Footer,
-   FooterContainer } from "./styles";
+   FooterContainer,
+   CenteredContainer} from "./styles";
 
 export function Main(){
   const [modalVisible, setModalVisible] = useState(false);
   const [selectTable, setSelectTable] = useState('');
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isLoading] = useState(false)
 
   function handleSaveTable(table: string) {
     setSelectTable(table);
@@ -91,19 +93,32 @@ export function Main(){
         onCancelOrder={handleResetOrder}
       />
 
-      <CategoriesContainer>
-        <Categories/>
-      </CategoriesContainer>
+      {isLoading && (
+        <CenteredContainer>
+          <ActivityIndicator color="#d73035" size="large"/>
+        </CenteredContainer>
+      )}
 
-      <MenuContainer>
-        <Menu onAddToCart={handleAddToCart}/>
-      </MenuContainer>
+      {!isLoading && (
+        <>
+          <CategoriesContainer>
+            <Categories/>
+          </CategoriesContainer>
+
+          <MenuContainer>
+            <Menu onAddToCart={handleAddToCart}/>
+          </MenuContainer>
+        </>
+      )}
 
     </Container>
     <Footer>
       <FooterContainer>
         {!selectTable && (
-          <Button onPress={()=> setModalVisible(true)}>Novo Pedido</Button>
+          <Button
+          onPress={()=> setModalVisible(true)}
+          disabled={isLoading}
+          >Novo Pedido</Button>
         )}
         {selectTable && (
           <Cart

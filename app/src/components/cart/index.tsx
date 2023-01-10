@@ -18,6 +18,7 @@ type CartProps ={
 }
 
 export function Cart({cartItems, onAdd, onDecrement, onConfirmOrder}: CartProps){
+  const [isLoading, setIsLoading] = useState(false)
   const [isModalConfirm, setIsModalConfirm] = useState(false);
 
   const total = cartItems.reduce((acc, cartItem) =>{
@@ -94,6 +95,8 @@ export function Cart({cartItems, onAdd, onDecrement, onConfirmOrder}: CartProps)
         {cartItems.length > 0 &&(
           <Button
           onPress={handleConfirmOrder}
+          disabled={cartItems.length === 0}
+          loading={isLoading}
           >Confirmar Pedido</Button>
         )}
         </Sumary>
