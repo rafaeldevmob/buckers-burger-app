@@ -29,7 +29,57 @@ export function Main(){
   }
 
   function handleAddToCart(product: Product){
-    alert(product.name)
+    if(!selectTable){
+      setModalVisible(true);
+    }
+
+    setCartItems((prevState) => {
+      const itemIndex = prevState.findIndex(
+        cartItems => cartItems.product._id === product._id
+      );
+        if(itemIndex < 0){
+          return prevState.concat({
+            quantity:1,
+            product,
+          });
+        }
+
+        const newCartItems = [...prevState];
+        const item = newCartItems[itemIndex];
+
+        newCartItems[itemIndex] = {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+
+        return newCartItems;
+    });
+  }
+
+  function handleMinusCartItem(product: Product){
+    setCartItems((prevState) => {
+      const itemIndex = prevState.findIndex(
+        cartItems => cartItems.product._id === product._id
+      );
+
+      const item = prevState[itemIndex];
+      const newCartItems = [...prevState];
+
+      if(item.quantity === 1){
+
+        newCartItems.splice(itemIndex, 1);
+
+        return newCartItems;
+      }
+
+      newCartItems[itemIndex] = {
+        ...item,
+        quantity: item.quantity - 1,
+      };
+
+      return newCartItems;
+
+    });
   }
 
   return(
@@ -55,7 +105,11 @@ export function Main(){
           <Button onPress={()=> setModalVisible(true)}>Novo Pedido</Button>
         )}
         {selectTable && (
-          <Cart cartItems={cartItems}/>
+          <Cart
+          cartItems={cartItems}
+          onAdd={handleAddToCart}
+          onDecrement={handleMinusCartItem}
+          />
         )}
       </FooterContainer>
     </Footer>
