@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FlatList } from "react-native";
 import { Product } from "../../types/Product";
 import { formatCurrency } from "../../utils/formatCurrency";
-import { CategoriesList as products } from "../categories/mok";
 import { PlusCircle } from "../Icons/PlusCircle";
 import { ProductModal } from "../productModal";
 import { Text } from "../Text";
@@ -10,9 +9,10 @@ import {ProductContainer, ProductImage, ProductDetails, Grid, AddToCartButton} f
 
 type MenuProps = {
   onAddToCart: (product: Product)=> void;
+  products: Product[];
 }
 
-export function Menu ({onAddToCart}:MenuProps){
+export function Menu ({onAddToCart, products }:MenuProps){
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<null | Product>(null);
 
