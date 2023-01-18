@@ -4,6 +4,7 @@ dependencias
  - nodemon
  - ts-node
  - mongoose
+ - axios
 
 Database
 
