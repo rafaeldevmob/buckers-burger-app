@@ -28,6 +28,7 @@ export function Main(){
   const [isLoading, setIsLoading] = useState(true)
   const [products, setProducts] = useState<Product[]>([])
   const [categories, setCategories] = useState<CategoryType[]>([])
+  const [isLoadingProducts, setIsLoadingProducts] = useState(false)
 
   useEffect(() => {
     Promise.all([
@@ -42,13 +43,20 @@ export function Main(){
   },[])
 
   async function handleSelectCategory(categoryId: string){
-    const route = !categoryId ? '/products' : `/categories/${categoryId}/products`;
+    const route = !categoryId
+      ? '/products'
+      : `/categories/${categoryId}/products`;
+
+    setIsLoadingProducts(true);
+
     const {data} = await api.get(route);
     setProducts(data);
+    setIsLoadingProducts(false);
   }
 
   function handleSaveTable(table: string) {
     setSelectTable(table);
+    setModalVisible(false)
   }
 
   function handleResetOrder(){
@@ -133,7 +141,13 @@ export function Main(){
             />
           </CategoriesContainer>
 
-          {products.length > 0 ? (
+        {isLoadingProducts ? (
+          <CenteredContainer>
+            <ActivityIndicator color="#d73035" size="large"/>
+          </CenteredContainer>
+        ) : (
+          <>
+            {products.length > 0 ? (
             <MenuContainer>
             <Menu
             products={products}
@@ -148,6 +162,8 @@ export function Main(){
               </Text>
             </CenteredContainer>
           )}
+          </>
+        )}
         </>
       )}
 
