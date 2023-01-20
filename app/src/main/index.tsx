@@ -41,6 +41,12 @@ export function Main(){
       console.log(`GetCategoriesAndProducts error: ${error}`));
   },[])
 
+  async function handleSelectCategory(categoryId: string){
+    const route = !categoryId ? '/products' : `/categories/${categoryId}/products`;
+    const {data} = await api.get(route);
+    setProducts(data);
+  }
+
   function handleSaveTable(table: string) {
     setSelectTable(table);
   }
@@ -123,6 +129,7 @@ export function Main(){
           <CategoriesContainer>
             <Categories
               categories={categories}
+              onSelectCategory={handleSelectCategory}
             />
           </CategoriesContainer>
 
