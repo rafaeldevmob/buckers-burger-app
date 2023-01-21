@@ -9,9 +9,10 @@ type OrdersCardProps = {
   title:string;
   orders: Order[];
   onCancelOrder: (orderId: string) => void;
+  onChangeOrderStatus: (orderId: string, status:Order['status']) => void;
 }
 
-export default function OrdersCard({title, orders,onCancelOrder}: OrdersCardProps){
+export default function OrdersCard({title, orders,onCancelOrder,onChangeOrderStatus}: OrdersCardProps){
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedOrder,setSelectedOrder] = useState<null | Order>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,12 +27,26 @@ export default function OrdersCard({title, orders,onCancelOrder}: OrdersCardProp
     setSelectedOrder(null);
   }
 
+  async function handleChangeOrderStatus(){
+    setIsLoading(true);
+
+    const newStatus = selectedOrder?.status === 'WAITING' ? 'IN_PRODUCTION' : 'DONE';
+
+    await api.patch(`/orders/${selectedOrder?._id}`, { status: newStatus});
+
+    toast.success(`Status do pedido da mesa ${selectedOrder?.table} foi alterado!`);
+    onChangeOrderStatus(selectedOrder!._id, newStatus);
+    setIsLoading(false);
+    setModalVisible(false);
+  }
+
   //usada para deletar a ordem na backend
   async function handleCancelOrder(){
     setIsLoading(true);
 
     await api.delete(`/orders/${selectedOrder?._id}`);
-    toast.success(`Pedido da mesa ${selectedOrder?.table} foi cancelado!`)
+
+    toast.success(`Pedido da mesa ${selectedOrder?.table} foi cancelado!`);
     onCancelOrder(selectedOrder!._id);
     setIsLoading(false);
     setModalVisible(false);
@@ -46,6 +61,7 @@ export default function OrdersCard({title, orders,onCancelOrder}: OrdersCardProp
           onClose={handleCloseModal}
           onCancelOrder={handleCancelOrder}
           isLoading={isLoading}
+          onChangeOrderStatus={handleChangeOrderStatus}
         />
 
         <header>
