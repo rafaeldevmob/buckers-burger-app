@@ -7,7 +7,6 @@ export const OrdersCards = styled.div`
   border-radius:1.6rem;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
   flex:1;
 
