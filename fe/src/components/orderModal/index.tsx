@@ -8,9 +8,11 @@ type OrderModalProps = {
   visible: boolean;
   order: Order | null;
   onClose: () => void;
+  onCancelOrder:()=> Promise<void>;
+  isLoading: boolean;
 }
 
-export default function OrderModal({visible, order, onClose}: OrderModalProps){
+export default function OrderModal({visible, order, onClose, onCancelOrder, isLoading}: OrderModalProps){
   if(!visible || !order){
     return null;
   }
@@ -56,10 +58,19 @@ export default function OrderModal({visible, order, onClose}: OrderModalProps){
           </div>
         </ModalDetails>
         <ActionsModal>
-          <button type='button' className='button-send-modal'>
+          <button
+            type='button'
+            className='button-send-modal'
+            disabled={isLoading}
+          >
             <strong>Iniciar Pedido</strong>
           </button>
-          <button type='button' className='button-cancel-modal'>
+          <button
+            type='button'
+            className='button-cancel-modal'
+            onClick={onCancelOrder}
+            disabled={isLoading}
+          >
             <strong>Cancelar Pedido</strong>
           </button>
         </ActionsModal>

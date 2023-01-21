@@ -126,6 +126,16 @@ export const ModalDetails = styled.div`
 `;
 
 export const ActionsModal = styled.footer`
+  display:flex;
+  flex-direction:column;
+  margin-top:32px;
+
+  //estilo para button disabled
+  button:disabled{
+    opacity:0.5;
+    cursor: not-allowed;
+  }
+
   .button-send-modal{
     display:block;
     margin:3.2rem auto 1.2rem;
@@ -138,6 +148,7 @@ export const ActionsModal = styled.footer`
     font-weight:900;
     color:#ffff;
   }
+
   .button-cancel-modal{
     font-size:1.4rem;
     font-weight:900;
