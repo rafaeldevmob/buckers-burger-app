@@ -28,14 +28,17 @@ export default function Orders(){
       <OrdersCard
         title='Fila de espera'
         orders={waiting}
+        onCancelOrder={handleCancelOrder}
       />
       <OrdersCard
         title='Em Produção'
         orders={inPrduction}
+        onCancelOrder={handleCancelOrder}
       />
       <OrdersCard
         title='Finalizado'
         orders={done}
+        onCancelOrder={handleCancelOrder}
       />
     </OrdersContainer>
   );
