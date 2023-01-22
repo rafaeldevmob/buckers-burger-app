@@ -20,6 +20,7 @@ Biblioteca
 Tools
 
 - vite
+- WebSocket
 
 Technology
 
