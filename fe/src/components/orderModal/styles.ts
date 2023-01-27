@@ -37,7 +37,7 @@ export const ModalBody = styled.div`
   }
 
   .Modal-Status-Container{
-    margin-top:3.2rem;
+    margin-top:2.5rem;
 
     small {
       font-size: 1.4rem;
@@ -69,13 +69,13 @@ export const ModalDetails = styled.div`
       display:flex;
 
       & + .item{
-        margin-top:1.6rem;
+        margin-top:2rem;
       }
 
       img{
-        max-width:6rem;
+        width:6rem;
         height:5rem;
-        object-fit:contain;
+        object-fit:cover;
         border-radius:.6rem;
       }
 
@@ -106,7 +106,7 @@ export const ModalDetails = styled.div`
   }
 
   .total{
-    margin-top:2.4rem;
+    margin-top:3.2rem;
     display:flex;
     align-items:center;
     justify-content: space-between;
@@ -128,7 +128,7 @@ export const ModalDetails = styled.div`
 export const ActionsModal = styled.footer`
   display:flex;
   flex-direction:column;
-  margin-top:32px;
+  margin-top:20px;
 
   //estilo para button disabled
   button:disabled{
