@@ -5,7 +5,7 @@ import { formatCurrency } from "../../utils/formatCurrency";
 import { PlusCircle } from "../Icons/PlusCircle";
 import { ProductModal } from "../productModal";
 import { Text } from "../Text";
-import {ProductContainer, ProductImage, ProductDetails, Grid, AddToCartButton} from "./styles";
+import {ProductContainer, Image, ProductDetails, Grid, AddToCartButton} from "./styles";
 
 type MenuProps = {
   onAddToCart: (product: Product)=> void;
@@ -31,9 +31,10 @@ return (
       ItemSeparatorComponent={Grid}
       renderItem={({ item: product}) => (
         <ProductContainer onPress={() => handleOpenModal(product)}>
-          <ProductImage
-            source={{uri:`http://10.0.2.2:3000/uploados/${product.imagePath}`}}
+          <Image
+            source={{uri:`http://10.0.2.2:3000/uploads/${product.imagePath}`}}
           />
+
           <ProductDetails>
             <Text weight="600">{product.name}</Text>
             <Text size={14} color='#666' style={{ marginVertical: 8 }}>{product.description}</Text>
