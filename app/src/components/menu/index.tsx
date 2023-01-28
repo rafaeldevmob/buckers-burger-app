@@ -36,7 +36,7 @@ return (
           />
           <ProductDetails>
             <Text weight="600">{product.name}</Text>
-            <Text size={14} color='#666' style={{ marginVertical: 8 }}>{product.descritption}</Text>
+            <Text size={14} color='#666' style={{ marginVertical: 8 }}>{product.description}</Text>
             <Text size={14} weight="600">{formatCurrency(product.price)}</Text>
           </ProductDetails>
           <AddToCartButton onPress={() => onAddToCart(product)}>
