@@ -6,8 +6,11 @@ const App = () => {
 
   return(
     <>
-    <StatusBar/>
-    <Main/>
+      <StatusBar
+        backgroundColor="#fafafa"
+        barStyle="dark-content"
+      />
+      <Main/>
     </>
 
   )

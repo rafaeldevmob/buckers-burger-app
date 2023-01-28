@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ActivityIndicator} from "react-native";
+import { ActivityIndicator, StatusBar} from "react-native";
 import { Button } from "../components/button";
 import { Cart } from "../components/cart";
 import { Categories } from "../components/categories";
@@ -25,10 +25,10 @@ export function Main(){
   const [modalVisible, setModalVisible] = useState(false);
   const [selectTable, setSelectTable] = useState('');
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true)
-  const [products, setProducts] = useState<Product[]>([])
-  const [categories, setCategories] = useState<CategoryType[]>([])
-  const [isLoadingProducts, setIsLoadingProducts] = useState(false)
+  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<CategoryType[]>([]);
+  const [isLoadingProducts, setIsLoadingProducts] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -172,26 +172,26 @@ export function Main(){
       <FooterContainer>
         {!selectTable && (
           <Button
-          onPress={()=> setModalVisible(true)}
-          disabled={isLoading}
+            onPress={()=> setModalVisible(true)}
+            disabled={isLoading}
           >Novo Pedido</Button>
         )}
         {selectTable && (
           <Cart
-          cartItems={cartItems}
-          onAdd={handleAddToCart}
-          onDecrement={handleMinusCartItem}
-          onConfirmOrder={handleResetOrder}
-          selectTable={selectTable}
+            cartItems={cartItems}
+            onAdd={handleAddToCart}
+            onDecrement={handleMinusCartItem}
+            onConfirmOrder={handleResetOrder}
+            selectTable={selectTable}
           />
         )}
       </FooterContainer>
     </Footer>
-    <TableModal
-    visible={modalVisible}
-    onClose={()=> setModalVisible(false)}
-    onSave={handleSaveTable}
-    />
+      <TableModal
+        visible={modalVisible}
+        onClose={()=> setModalVisible(false)}
+        onSave={handleSaveTable}
+      />
     </>
   );
 }

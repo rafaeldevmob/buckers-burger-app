@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const HeaderContainer = styled.View`
-  padding:10px 32px 0;
+  padding:0 32px;
 `;
 
 export const OrderHeader = styled.View`
