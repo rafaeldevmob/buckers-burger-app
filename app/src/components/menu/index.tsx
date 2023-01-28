@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FlatList } from "react-native";
 import { Product } from "../../types/Product";
+import { URL_BASE } from "../../utils/api";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { PlusCircle } from "../Icons/PlusCircle";
 import { ProductModal } from "../productModal";
@@ -32,7 +33,7 @@ return (
       renderItem={({ item: product}) => (
         <ProductContainer onPress={() => handleOpenModal(product)}>
           <Image
-            source={{uri:`http://10.0.2.2:3000/uploads/${product.imagePath}`}}
+            source={{uri:`${URL_BASE}/uploads/${product.imagePath}`}}
           />
 
           <ProductDetails>

@@ -1,5 +1,6 @@
 import { FlatList, Modal} from "react-native";
 import { Product } from "../../types/Product";
+import { URL_BASE } from "../../utils/api";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { Button } from "../button";
 import { Close } from "../Icons/Close";
@@ -31,7 +32,7 @@ export function ProductModal({visible, onClose, product, onAddToCart}: ProductMo
       onRequestClose={onClose}
     >
       <Image
-        source={{uri:`http://10.0.2.2:3000/uploads/${product.imagePath}`}}
+        source={{uri:`${URL_BASE}/uploads/${product.imagePath}`}}
         >
           <CloseButton onPress={onClose}>
             <Close/>

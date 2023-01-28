@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
 import { CartItem } from "../../types/CartItem";
 import { Product } from "../../types/Product";
-import { api } from "../../utils/api";
+import { api, URL_BASE } from "../../utils/api";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { Button } from "../button";
 import { MinusCircle } from "../Icons/MinusCircle";
@@ -66,7 +66,7 @@ export function Cart({cartItems, onAdd, onDecrement, onConfirmOrder, selectTable
             <Item>
               <ProductContainer>
                 <Image
-                source={{uri:`http://10.0.2.2:3000/uploads/${cartItem.product.imagePath}`}}
+                source={{uri:`${URL_BASE}/uploads/${cartItem.product.imagePath}`}}
                 />
 
                 <QuantityContainer>
