@@ -31,7 +31,7 @@ export function ProductModal({visible, onClose, product, onAddToCart}: ProductMo
       onRequestClose={onClose}
     >
       <Image
-        source={{uri:`http://10.0.2.2:3000/uploados/${product.imagePath}`}}
+        source={{uri:`http://10.0.2.2:3000/uploads/${product.imagePath}`}}
         >
           <CloseButton onPress={onClose}>
             <Close/>
@@ -45,7 +45,7 @@ export function ProductModal({visible, onClose, product, onAddToCart}: ProductMo
           weight="400"
           color="#666"
           style={{marginTop: 8}}
-        >{product.descritption}</Text>
+        >{product.description}</Text>
 
       </Header>
       {product.ingredients.length > 0 && (
