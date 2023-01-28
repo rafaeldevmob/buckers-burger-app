@@ -1,4 +1,4 @@
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import { Text } from "../Text";
 import { HeaderContainer, Content, OrderHeader, TableContent } from "./styles";
 
@@ -12,8 +12,14 @@ export function Header({selectTable, onCancelOrder}: HeaderProps){
     <HeaderContainer>
       {!selectTable && (
         <>
-          <Text size={14} opacity={0.9}>Bem vindo ao</Text>
-          <Text size={24} weight='700'>Bucker's Burger</Text>
+          <Image
+          source={require('../../assets/images/logo.png')}
+          style={{
+            width: 100,
+            height: 100,
+            alignSelf:"flex-end"
+          }}
+          />
         </>
       )}
     { selectTable && (

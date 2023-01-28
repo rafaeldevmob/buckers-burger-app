@@ -25,7 +25,7 @@ return (
   <>
     <FlatList
       data={products}
-      style={{marginTop: 32 }}
+      style={{marginTop: 0 }}
       contentContainerStyle={{paddingHorizontal: 24 }}
       keyExtractor={product => product._id}
       ItemSeparatorComponent={Grid}
@@ -45,10 +45,10 @@ return (
         </ProductContainer>
       )}/>
       <ProductModal
-      visible={modalVisible}
-      onClose={() => setModalVisible(false)}
-      product={selectedProduct}
-      onAddToCart={onAddToCart}
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        product={selectedProduct}
+        onAddToCart={onAddToCart}
       />
     </>
   );

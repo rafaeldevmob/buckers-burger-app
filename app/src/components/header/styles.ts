@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const HeaderContainer = styled.View`
-  margin:24px 24px 0;
+  padding:10px 32px 0;
 `;
 
 export const OrderHeader = styled.View`
@@ -10,9 +10,7 @@ export const OrderHeader = styled.View`
   justify-content:space-between;
 `;
 
-export const Content = styled.View`
-
-`;
+export const Content = styled.View``;
 
 export const TableContent = styled.View`
   margin-top: 24px;

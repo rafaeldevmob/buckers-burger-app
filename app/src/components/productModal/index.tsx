@@ -25,10 +25,10 @@ export function ProductModal({visible, onClose, product, onAddToCart}: ProductMo
 
   return(
     <Modal
-    visible={visible}
-    animationType="slide"
-    presentationStyle="pageSheet"
-    onRequestClose={onClose}
+      visible={visible}
+      animationType="slide"
+      presentationStyle="pageSheet"
+      onRequestClose={onClose}
     >
       <Image
         source={{uri:`http://10.0.2.2:3000/uploados/${product.imagePath}`}}
@@ -40,7 +40,13 @@ export function ProductModal({visible, onClose, product, onAddToCart}: ProductMo
       <ModalBody>
       <Header>
         <Text size={24} weight="600">{product.name}</Text>
-        <Text size={16} weight="400" color="#666" style={{marginTop: 8}}>{product.descritption}</Text>
+        <Text
+          size={16}
+          weight="400"
+          color="#666"
+          style={{marginTop: 8}}
+        >{product.descritption}</Text>
+
       </Header>
       {product.ingredients.length > 0 && (
         <IngredientsContainer>

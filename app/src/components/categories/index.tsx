@@ -28,8 +28,13 @@ export function Categories ({categories, onSelectCategory}: CategoriesProps){
       renderItem={({item: category})=>{
         const isSelected = selectedCategory === category._id;
         return(
-          <Category onPress={()=> handleSelectCategory(category._id)}>
-          <Text size={14} weight="600" opacity={isSelected ? 1 : 0.5}>{category.name}</Text>
+          <Category
+            onPress={()=> handleSelectCategory(category._id)}>
+            <Text
+              size={14}
+              weight="600"
+              opacity={isSelected ? 1 : 0.5}>{category.name}
+            </Text>
         </Category>
         );
       }}

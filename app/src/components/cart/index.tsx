@@ -70,11 +70,23 @@ export function Cart({cartItems, onAdd, onDecrement, onConfirmOrder, selectTable
                 />
 
                 <QuantityContainer>
-                  <Text size={14} color="#666">{cartItem.quantity}x</Text>
+                  <Text
+                  size={14}
+                  color="#666"
+                  style={{paddingRight: 10}}
+                  >{cartItem.quantity}x</Text>
                 </QuantityContainer>
+
                 <ProductDetails>
-                  <Text size={14} weight='600'>{cartItem.product.name}</Text>
-                  <Text size={14} color="#666" style={{marginTop: 4}}>{formatCurrency(cartItem.product.price)}</Text>
+                  <Text
+                    size={14}
+                    weight='600'
+                  >{cartItem.product.name}</Text>
+                  <Text
+                    size={14}
+                    color="#666"
+                    style={{marginTop: 4}}
+                  >{formatCurrency(cartItem.product.price)}</Text>
                 </ProductDetails>
               </ProductContainer>
               <Actions>
@@ -109,9 +121,9 @@ export function Cart({cartItems, onAdd, onDecrement, onConfirmOrder, selectTable
         </TotalContainer>
         {cartItems.length > 0 &&(
           <Button
-          onPress={handleConfirmOrder}
-          disabled={cartItems.length === 0}
-          loading={isLoading}
+            onPress={handleConfirmOrder}
+            disabled={cartItems.length === 0}
+            loading={isLoading}
           >Confirmar Pedido</Button>
         )}
         </Sumary>
