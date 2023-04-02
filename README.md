@@ -39,7 +39,7 @@
 ## Descrição do projeto :page_with_curl:
 
 <p align="justify">
-  Projeto ....
+  
 </p>
 
 ## Dependencias
