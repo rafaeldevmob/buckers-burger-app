@@ -39,7 +39,7 @@
 ## Descrição do projeto :page_with_curl:
 
 <p align="justify">
-  Projeto ....
+  
 </p>
 
 ## Dependencias
@@ -61,10 +61,11 @@
 
 ## Tools
 
-- Docker
-- vite
-- WebSocket
-- Insominia
+- <a href="https://www.docker.com/">Docker</a>
+- <a href="https://vitejs.dev/">Vite</a>
+- <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/WebSockets_API">WebSocket</a>
+- <a href="https://insomnia.rest/download">Insominia</a>
+- <a href="https://developer.android.com/studio">Android Studio</a>
 
 ## Technology
 
@@ -85,35 +86,49 @@
 - [ ] Deletar de categorias.
 
 
-## Como rodar a aplicação :arrow_forward:
+## How run aplication :arrow_forward:
+
+## Step 1
+
+- Install <a href="https://insomnia.rest/download">Insominia</a>
+- Install <a href="https://www.docker.com/">Docker</a>
+- Install <a href="https://developer.android.com/studio">Android Studio</a>
+
+## Step 2
+
+- Open Android Studio and create Virtual Device
+
+## Step 3
+
+Clone the repository:
 
 ```
 git clone https://github.com/rafaelpereirafront/food-app-native.git
 ```
 
-Entre na pasta do projeto:
+Enter the project folder:
 
 ```
 cd lanchonete
 ```
 
-Instale as dependências: 
+Install the dependecies: 
 
 ```
 npm install
 ```
-Abra o Docker e Instale a do imagem mongo
+Open the Docker and install MongoDb image: 
 ```
 docker pull mongo
 ```
 
-Instale a imagem do Database
+Install Database Image:
 
 ```
 docker pull rafaelpereirarj/mongo:db
 ```
 
-Execute a Api: 
+Enter the API folder: 
 
 ```
 cd api
@@ -121,7 +136,7 @@ cd api
 npm run dev
 ```
 
-Execute o Dashboard: 
+Enter the Web Dashboard folder: 
 
 ```
 cd fe
@@ -129,7 +144,7 @@ cd fe
 npm run dev
 ```
 
-Execute o emulador do Android: 
+Start the Android emulator: 
 
 ```
 cd app
