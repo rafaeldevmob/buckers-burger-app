@@ -14,35 +14,35 @@
 
 <br>
 
-> Status do Projeto: Em finalização :warning:
+> Stats the project: In Progress :warning:
 
 <br>
 
-## Demonstração
+## Demonstration
 
 <img src='./gif.gif' alt='gif' />
 
 <br>
 
-### Tópicos
+### Topics
 
-:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto-page_with_curl)
+:small_blue_diamond: [Project Description](#descrição-do-projeto-page_with_curl)
 
-:small_blue_diamond: [Funcionalidades](#funcionalidades-heavy_check_mark)
+:small_blue_diamond: [Functionalities](#funcionalidades-heavy_check_mark)
 
-:small_blue_diamond: [Funcionalidades em aberto](#funcionalidades-em-aberto-warning)
+:small_blue_diamond: [Functionalities in Open](#funcionalidades-em-aberto-warning)
 
-:small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
+:small_blue_diamond: [how run the aplication](#como-rodar-a-aplicação-arrow_forward)
 
 <br>
 
-## Descrição do projeto :page_with_curl:
+## Project describs :page_with_curl:
 
 <p align="justify">
   
 </p>
 
-## Dependencias
+## Dependencies
 
  - Express
  - Nodemon
@@ -54,7 +54,7 @@
 
 - Mongodb
 
-## Biblioteca
+## Libary
 
 - Multer
 - Styled Componets
@@ -64,7 +64,7 @@
 - <a href="https://www.docker.com/">Docker</a>
 - <a href="https://vitejs.dev/">Vite</a>
 - <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/WebSockets_API">WebSocket</a>
-- <a href="https://insomnia.rest/download">Insominia</a>
+- <a href="https://insomnia.rest/download">Insomnia</a>
 - <a href="https://developer.android.com/studio">Android Studio</a>
 
 ## Technology
@@ -78,25 +78,59 @@
 - [X] Gerenciamento de pedidos.
 - [X] Cancelamento e confirmação.
 
-## Funcionalidades em aberto :warning:
+## Functionalities in Open :warning:
 
-- [ ] Cadastro de produtos.
-- [ ] Deletar produtos.
-- [ ] Cadastro de categorias.
-- [ ] Deletar de categorias.
+- [ ] Product register.
+- [ ] Product delete.
+- [ ] Categories register.
+- [ ] Categories delete.
 
 
 ## How run aplication :arrow_forward:
 
 ## Step 1
 
-- Install <a href="https://insomnia.rest/download">Insominia</a>
+- Install <a href="https://insomnia.rest/download">Insomnia</a>
 - Install <a href="https://www.docker.com/">Docker</a>
 - Install <a href="https://developer.android.com/studio">Android Studio</a>
 
 ## Step 2
 
 - Open Android Studio and create Virtual Device
+- Open Insomnia
+
+### Create Folder and GET, POST, DEL, GET
+
+<img src='./insomnia.png' />
+<br>
+<br>
+
+Insert URLs 
+
+Orders 
+
+```
+http://localhost:3000/orders/
+```
+
+Products
+
+```
+http://localhost:3000/products
+```
+
+Categories
+
+```
+http://localhost:3000/categories/
+```
+
+Get Product by category
+#### substitute ID as Correct ID
+
+```
+http://localhost:3000/categories/{ID}/products
+```
 
 ## Step 3
 
