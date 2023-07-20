@@ -14,8 +14,6 @@
 
 <br>
 
-> Stats the project: In Progress :warning:
-
 <br>
 
 ## Demonstration
